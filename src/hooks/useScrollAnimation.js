@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.defaults({ scroller: window });
 
 export function useScrollAnimation(
   fromVars = { opacity: 0, y: 60 },
@@ -21,7 +22,7 @@ export function useScrollAnimation(
         scrollTrigger: {
           trigger: el,
           start: "top 82%",
-          toggleActions: "play none none none",
+          toggleActions: "play reverse play reverse",
           ...triggerOptions,
         },
       });
@@ -56,7 +57,7 @@ export function useStaggerAnimation(
           scrollTrigger: {
             trigger: el,
             start: "top 80%",
-            toggleActions: "play none none none",
+            toggleActions: "play reverse play reverse",
           },
         },
       );

@@ -4,34 +4,28 @@ import styles from "./Navbar.module.css";
 
 export default function Navbar() {
   const navRef = useRef(null);
-  const lastScrollY = useRef(0);
 
   useEffect(() => {
     gsap.fromTo(
       navRef.current,
-      { opacity: 0, y: -80 },
-      { opacity: 1, y: 0, duration: 1.2, ease: "power4.out", delay: 0.5 },
+      { y: -80, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power4.out",
+        delay: 0.5,
+        clearProps: "all",
+      },
     );
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentY = window.scrollY;
-      if (currentY > lastScrollY.current && currentY > 100) {
-        gsap.to(navRef.current, { y: -80, duration: 0.4, ease: "power2.in" });
-      } else {
-        gsap.to(navRef.current, { y: 0, duration: 0.4, ease: "power2.out" });
-      }
-
-      lastScrollY.current = currentY;
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    const el = document.getElementById(id);
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top, behavior: "smooth" });
+    setTimeout(() => ScrollTrigger.refresh(), 600);
   };
 
   return (

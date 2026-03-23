@@ -68,12 +68,12 @@ function ProjectCard({ project, index }) {
           scrollTrigger: {
             trigger: el,
             start: "top 85%",
-            toggleActions: "play none none none",
+            toggleActions: "play reverse play reverse",
           },
         },
       );
     });
-
+    ScrollTrigger.refresh();
     return () => ctx.revert();
   }, [index]);
 

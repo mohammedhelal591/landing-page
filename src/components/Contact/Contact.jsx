@@ -34,11 +34,13 @@ export default function Contact() {
           scrollTrigger: {
             trigger: el,
             start: "top 80%",
-            toggleActions: "play none none none",
+            toggleActions: "play reverse play reverse",
           },
         },
       );
     });
+
+    ScrollTrigger.refresh();
 
     return () => ctx.revert();
   }, []);
