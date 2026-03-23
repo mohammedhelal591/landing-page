@@ -1,23 +1,36 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import styles from "./Navbar.module.css";
 
 export default function Navbar() {
+  const [active, setActive] = useState("");
   const navRef = useRef(null);
 
   useEffect(() => {
-    gsap.fromTo(
-      navRef.current,
-      { y: -80, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1.2,
-        ease: "power4.out",
-        delay: 0.5,
-        clearProps: "all",
-      },
-    );
+    const sections = ["about", "work", "process", "contact"];
+
+    const triggers = sections.map((id) => {
+      const el = document.getElementById(id);
+      if (!el) return null;
+
+      return ScrollTrigger.create({
+        trigger: el,
+        start: "top 60%",
+        end: "bottom 40%",
+        onEnter: () => setActive(id),
+        onEnterBack: () => setActive(id),
+        onLeave: () => {},
+        onLeaveBack: () => {},
+      });
+    });
+
+    // 🔥 force recalculation after everything mounts
+    ScrollTrigger.refresh();
+
+    return () => {
+      triggers.forEach((t) => t?.kill());
+    };
   }, []);
 
   const scrollTo = (id) => {
@@ -33,11 +46,13 @@ export default function Navbar() {
       <div className={styles.logo}>Design</div>
       <ul className={styles.links}>
         {["about", "work", "process", "contact"].map((item) => (
-          <li key={item}>
+          <li key={item} className={`${styles.listItem} `}>
             <button
               type="button"
               onClick={() => scrollTo(item)}
-              className={styles.link}
+              className={`${styles.link} ${
+                active === item ? styles.active : ""
+              }`}
             >
               {item}
             </button>

@@ -22,6 +22,10 @@
   --font-body: "DM Sans", sans-serif;
 }
 
+section {
+  min-height: 100vh;
+}
+
 html {
   scroll-behavior: auto;
 }
