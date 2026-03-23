@@ -22,21 +22,27 @@ function CustomCursor() {
     let followerX = 0;
     let followerY = 0;
 
+    const DOT_OFFSET = 4;
+    const FOLLOWER_OFFSET = 19;
+
     const onMove = (e) => {
-      mouseX = e.ClientX;
-      mouseY = e.ClientY;
-      gsap.to(dot, { x: mouseX, y: mouseY, duration: 0.1, ease: "none" });
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      dot.style.left = mouseX - DOT_OFFSET + "px";
+      dot.style.top = mouseY - DOT_OFFSET + "px";
     };
 
+    let rafId;
     const tick = () => {
       followerX += (mouseX - followerX) * 0.12;
       followerY += (mouseY - followerY) * 0.12;
-      gsap.set(follower, { x: followerX, y: followerY });
-      requestAnimationFrame(tick);
+      follower.style.left = followerX - FOLLOWER_OFFSET + "px";
+      follower.style.top = followerY - FOLLOWER_OFFSET + "px";
+      rafId = requestAnimationFrame(tick);
     };
 
     window.addEventListener("mousemove", onMove);
-    const rafId = requestAnimationFrame(tick);
+    rafId = requestAnimationFrame(tick);
 
     return () => {
       window.removeEventListener("mousemove", onMove);
