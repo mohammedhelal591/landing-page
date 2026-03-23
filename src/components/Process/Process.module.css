@@ -1,0 +1,145 @@
+.process {
+  position: relative;
+  padding: 10rem 4rem;
+  background: var(--charcoal);
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(
+    ellipse at 10% 50%,
+    rgba(200, 169, 110, 0.05) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.headerRow {
+  margin-bottom: 6rem;
+}
+
+.sectionLabel {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 7vw, 8rem);
+  line-height: 0.95;
+  color: var(--white);
+}
+
+.heading em {
+  font-style: italic;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.8em;
+  color: var(--accent);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.step {
+  padding: 2.5rem 2.5rem 2.5rem 0;
+  border-right: 1px solid rgba(200, 169, 110, 0.1);
+  padding-right: 2.5rem;
+}
+
+.step:first-child {
+  padding-left: 0;
+}
+
+.step:last-child {
+  border-right: none;
+}
+
+.step + .step {
+  padding-left: 2.5rem;
+}
+
+.stepNumber {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  color: rgba(200, 169, 110, 0.2);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+.stepDivider {
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.stepTitle {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.stepDesc {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: var(--sand);
+  opacity: 0.65;
+}
+
+/* Large decorative background text */
+.decorText {
+  position: absolute;
+  bottom: -2rem;
+  right: -2rem;
+  font-family: var(--font-display);
+  font-size: clamp(8rem, 18vw, 20rem);
+  color: rgba(255, 255, 255, 0.02);
+  letter-spacing: 0.05em;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .process {
+    padding: 6rem 1.5rem;
+  }
+  .steps {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .step {
+    border-right: none;
+    border-bottom: 1px solid rgba(200, 169, 110, 0.1);
+    padding: 0 0 2rem 0 !important;
+  }
+  .step:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}

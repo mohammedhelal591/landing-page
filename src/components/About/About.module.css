@@ -1,0 +1,177 @@
+.about {
+  position: relative;
+  padding: 10rem 4rem;
+  overflow: hidden;
+  background: var(--off-black);
+}
+
+.bgAccent {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(200, 169, 110, 0.05) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  max-width: 1300px;
+  margin: 0 auto 8rem;
+  align-items: center;
+}
+
+.sectionLabel {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 2rem;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  line-height: 1;
+  color: var(--white);
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.02em;
+}
+
+.heading em {
+  font-style: italic;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.85em;
+  color: var(--accent);
+}
+
+.body {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--sand);
+  opacity: 0.75;
+  max-width: 420px;
+  margin-bottom: 1.2rem;
+}
+
+/* Visual column */
+.visualCol {
+  position: relative;
+}
+
+.imageBox {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.imageFill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    var(--charcoal) 0%,
+    #2a2318 40%,
+    #1a1610 100%
+  );
+}
+
+/* Simulated photo texture */
+.imageFill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(200, 169, 110, 0.12) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 70% 70%,
+      rgba(100, 80, 40, 0.1) 0%,
+      transparent 50%
+    );
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+}
+
+.imageCaption {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 232, 0.5);
+}
+
+/* Stats */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1300px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(200, 169, 110, 0.15);
+  padding-top: 4rem;
+}
+
+.stat {
+  padding-right: 3rem;
+}
+
+.stat + .stat {
+  border-left: 1px solid rgba(200, 169, 110, 0.1);
+  padding-left: 3rem;
+  padding-right: 0;
+}
+
+.statValue {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 6vw, 6rem);
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-dim);
+}
+
+@media (max-width: 900px) {
+  .about {
+    padding: 6rem 1.5rem;
+  }
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+  }
+  .statsRow {
+    gap: 2rem;
+  }
+}

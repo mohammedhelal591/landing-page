@@ -1,0 +1,145 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--black);
+}
+
+.bg {
+  position: absolute;
+  inset: -20%;
+  z-index: 0;
+}
+
+.bgGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200, 169, 110, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 169, 110, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.bgGlow {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(
+    circle,
+    rgba(200, 169, 110, 0.06) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+}
+
+.decorLine {
+  position: absolute;
+  left: 4rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(200, 169, 110, 0.3),
+    transparent
+  );
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  padding: 0 4rem;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.tagline {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 2.5rem;
+}
+
+.dot {
+  color: var(--muted);
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 13vw, 14rem);
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin-bottom: 3rem;
+}
+
+.lineWrap {
+  display: block;
+  overflow: hidden;
+}
+
+.outlineText {
+  -webkit-text-stroke: 1px var(--cream);
+  color: transparent;
+}
+
+.subtitle {
+  font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+  line-height: 1.8;
+  color: var(--sand);
+  opacity: 0.75;
+  max-width: 380px;
+  margin-left: 2px;
+}
+
+.scrollHint {
+  position: absolute;
+  bottom: 3rem;
+  right: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  z-index: 2;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+}
+
+.scrollHint span {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  writing-mode: vertical-rl;
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 0 1.5rem;
+  }
+  .decorLine {
+    left: 1.5rem;
+  }
+  .heading {
+    font-size: clamp(4rem, 18vw, 7rem);
+  }
+  .scrollHint {
+    right: 1.5rem;
+  }
+}

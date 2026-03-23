@@ -1,0 +1,151 @@
+.contact {
+  position: relative;
+  padding: 10rem 4rem 4rem;
+  background: var(--off-black);
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contact::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(200, 169, 110, 0.3),
+    transparent
+  );
+}
+
+.inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.sectionLabel {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 3rem;
+}
+
+.headingWrap {
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 9vw, 11rem);
+  line-height: 0.95;
+  color: var(--white);
+  letter-spacing: 0.01em;
+}
+
+.outlineText {
+  -webkit-text-stroke: 1px rgba(232, 224, 208, 0.4);
+  color: transparent;
+}
+
+.sub {
+  max-width: 400px;
+  margin-bottom: 4rem;
+}
+
+.sub p {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--sand);
+  opacity: 0.6;
+}
+
+/* CTA row */
+.cta {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 2.5rem;
+  background: var(--accent);
+  color: var(--black);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: none;
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease,
+    gap 0.3s ease;
+}
+
+.ctaButton:hover {
+  background: var(--sand);
+  gap: 1.5rem;
+}
+
+.socials {
+  display: flex;
+  gap: 2rem;
+}
+
+.socialLink {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  cursor: none;
+  transition: color 0.3s ease;
+}
+
+.socialLink:hover {
+  color: var(--accent);
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 4rem;
+  border-top: 1px solid rgba(200, 169, 110, 0.08);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 6rem 1.5rem 3rem;
+  }
+  .cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+}
